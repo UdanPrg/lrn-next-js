@@ -2,5 +2,6 @@
 /node_modules
 /from react to nextjs/node_modules
 /from react to nextjs/.next
+# /first-nextjs-app/node_modules
 
 # ignore files
