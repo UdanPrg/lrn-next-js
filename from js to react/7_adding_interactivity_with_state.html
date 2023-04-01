@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builiding Components</title>
+</head>
+<body>
+    <!-- body app -->
+    <div id="app"></div>
+
+    <!-- scripts -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/jsx">
+        const app = document.getElementById('app');
+        
+        // -> Por operadores ternarios
+        function Header({ title }){
+            return(
+                <h1>{ title ? title: 'This is a default Title' }</h1>
+            )
+        }
+        function Button({ text }){
+            const [likes, setLikes] = React.useState(0);
+
+            function handleClick(){
+                console.log("Increment " + text);
+                setLikes(likes + 1);
+            }
+            return(
+                <button onClick={handleClick} key={text}>{text} {likes}.</button>
+            )
+        }
+
+        function HomePage(){
+
+            const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+            return(
+                <div>
+                    <Header title="React 💙" />
+                    <Header title="A new Title ✍🏻" />
+                    <ul>
+                        {
+                            names.map((name)=> (
+                                <li key={name}>
+                                    {name}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                    <Button text="Likes 👍🏽" />
+                    <Button text="Hearts ❣️" />
+                </div>
+            )
+        }
+        
+        ReactDOM.render(<HomePage />, app);
+    </script>
+</body>
+</html>

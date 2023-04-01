@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update DOM</title>
+</head>
+<body>
+    <!-- body app -->
+    <div id="app"></div>
+
+    <!-- scripts -->
+    <script type="text/javascript">
+        // Obtenemos el elemento por su ID
+        const app = document.getElementById("app");
+
+        // Creamos un elemento <h1> 
+        const header = document.createElement("h1");
+
+        // Creamos texto para el elemento 'header' que creamos
+        const headerContent = document.createTextNode("Develop. Preview. Ship. 🚀");
+
+        // Le asignamos el texto a 'header'
+        header.appendChild(headerContent);
+
+        // Finalmente asignamos el elemento 'header' al div con el id app guardado en la contante 'app'
+        app.appendChild(header);
+    </script>
+</body>
+</html>

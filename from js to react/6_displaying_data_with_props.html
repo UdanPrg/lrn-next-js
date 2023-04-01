@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builiding Components</title>
+</head>
+<body>
+    <!-- body app -->
+    <div id="app"></div>
+
+    <!-- scripts -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/jsx">
+        const app = document.getElementById('app');
+        
+        // -> Por desestructuración de objetos
+        // function Header({ title }){
+        //     return(
+        //         <h1>{ title }</h1>
+        //     )
+        // }
+        
+        // -> Por Propiedad de objeto
+        // function Header(props){
+        //     return(
+        //         <h1>{ props.title }</h1>
+        //     )
+        // }
+        
+        // -> Por literal de plantilla
+        // function Header({ title }){
+        //     return(
+        //         <h1>{ `Cool ${title}` }</h1>
+        //     )
+        // }
+        
+        // -> Por el Valor devuelto de una función
+        // function createTitle(title){
+        //     if(title){
+        //         return title;
+        //     }else{
+        //         return 'Default title';
+        //     }
+        // }
+        // -/-
+        // function Header({ title }){
+        //     return(
+        //         <h1>{ createTitle(title) }</h1>
+        //     )
+        // }
+        
+        // -> Por operadores ternarios
+        function Header({ title }){
+            return(
+                <h1>{ title ? title: 'This is a default Title' }</h1>
+            )
+        }
+
+
+        function HomePage(){
+            const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+
+            return(
+                <div>
+                    <Header title="React 💙" />
+                    <Header title="A new Title ✍🏻" />
+                    <ul>
+                        {
+                            names.map((name)=> (
+                                <li key={name}>
+                                    {name}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+            )
+        }
+        
+        ReactDOM.render(<HomePage />, app);
+    </script>
+</body>
+</html>
