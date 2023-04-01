@@ -1,0 +1,6 @@
+# ignore directories
+/node_modules
+/from react to nextjs/node_modules
+/from react to nextjs/.next
+
+# ignore files
